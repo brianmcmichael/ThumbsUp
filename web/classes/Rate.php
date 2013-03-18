@@ -55,4 +55,8 @@ class Rate
         $statement = $this->objDb->query($sql);
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
+
+
 }
