@@ -22,4 +22,20 @@ class Rate {
     public function __construct($user = null) {
         $this->_user = !empty($user) ? $user : getenv('REMOTE_ADDR');
     }
+
+    private function connect() {
+        try {
+            $this->objDb = new PDO("mysql:host={$this->_dbhost};dbname={$this->_dbname}",
+                $this->_dbuser,
+                $this->_dbpass,
+                array(
+                    PDO::ATTR_PERSISTENT => true
+                )
+            );
+            $this->objDb->exec("SET CHARACTER SET utf8");
+        }   catch(PDOException $e) {
+            echo $e->getMessage();
+            exit();
+        }
+    }
 }
