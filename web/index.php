@@ -1,3 +1,8 @@
+<?php
+require_once('classes/Rate.php');
+$objRate = new Rate();
+$posts = $objRate->getPosts();
+?>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
